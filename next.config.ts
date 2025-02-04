@@ -1,7 +1,13 @@
-import type { NextConfig } from "next";
+const withNextIntl = require('next-intl/plugin')();
 
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    images: {
+        domains: ['localhost'],
+    },
+    experimental: {
+        serverActions: true,
+    },
 };
 
-export default nextConfig;
+module.exports = withNextIntl(nextConfig);

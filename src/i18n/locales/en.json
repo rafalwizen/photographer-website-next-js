@@ -1,0 +1,43 @@
+{
+  "navbar": {
+    "home": "Home",
+    "about_me": "About Me",
+    "gallery": "Gallery",
+    "opinions": "Opinions",
+    "offer": "Offer",
+    "contact": "Contact"
+  },
+  "sidebar": {
+    "contact": "Contact"
+  },
+  "main": {
+    "see_more": "See more"
+  },
+  "cards": {
+    "heading": "Ultrices euismod adipiscing augue nullam dolor",
+    "card1_text": "Something in english...",
+    "card1_label": "Gallery",
+    "card2_text": "... and still in english....",
+    "card2_label": "Opinions",
+    "card3_text": "Neque porro quisquam est qui",
+    "card3_label": "About Me",
+    "card4_text": "Quia dolor sit amet, consectetur",
+    "card4_label": "Oferta",
+    "card5_text": "Phasellus id nunc vulputate ut",
+    "card5_label": "Conubia"
+  },
+  "contact" : {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "wedding_date": "Wedding&nbsp;date",
+    "message": "Message",
+    "send": "Send",
+    "send_alert_success": "Message sent! Thanks!",
+    "send_alert_error": "Oppps! An error occurred, please try again or sent me an email. Thanks!",
+    "info": "Please contact me via the form or directly to my email:"
+  },
+  "about" : {
+    "temp_p": "The website is under construction, please use the contact form or visit my (still somewhat limited) gallery and my social media"
+  }
+}

@@ -1,0 +1,20 @@
+.sidebar {
+    position: fixed;
+    bottom: 0;
+    border: 1px solid #373737;
+    right: 0;
+    height: 50px;
+    width: 150px;
+    background: linear-gradient(to right, #f7f7f7, #fff);
+    color: #373737;
+    display: flex;
+    align-items: center;
+    transition: width 0.3s ease, height 0.3s ease;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.sidebar.open {
+    width: 100vw;
+    height: 500px;
+}

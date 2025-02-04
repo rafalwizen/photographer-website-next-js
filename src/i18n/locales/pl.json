@@ -1,0 +1,43 @@
+{
+  "navbar": {
+    "home": "Strona Główna",
+    "about_me": "O mnie",
+    "gallery": "Galeria",
+    "opinions": "Opinie",
+    "offer": "Oferta",
+    "contact": "Kontakt"
+  },
+  "sidebar": {
+    "contact": "Kontakt"
+  },
+  "main": {
+    "see_more": "Zobacz więcej"
+  },
+  "cards": {
+    "heading": "Ultrices euismod adipiscing augue nullam dolor",
+    "card1_text": "Linki przenosza tam gdzie pokazue mały opis",
+    "card1_label": "Galeria",
+    "card2_text": "te podpisy nie wiem czy są przydatne",
+    "card2_label": "Opinie",
+    "card3_text": "Neque porro quisquam est qui",
+    "card3_label": "O mnie",
+    "card4_text": "Quia dolor sit amet, consectetur",
+    "card4_label": "Oferta",
+    "card5_text": "Phasellus id nunc vulputate ut",
+    "card5_label": "Kontakt"
+  },
+  "contact" : {
+    "name": "Imię",
+    "email": "Email",
+    "phone": "Telefon",
+    "wedding_date": "Data ślubu",
+    "message": "Wiadomość",
+    "send": "Wyślij",
+    "send_alert_success": "Wiadomość została wysłana! Dziękujemy!",
+    "send_alert_error": "Oppps! Coś się nam wysypało, spróbuj ponownie lub napisz do mnie maila. Dziękuję!",
+    "info": "Zapraszam do kontaktu przez formularz lub bezpośrednio na maila:"
+  },
+  "about" : {
+    "temp_p": "Strona w przebudowie, zapraszam do formularza kontaktowego, mojej (jeszcze trochę okrojonej) galerii oraz na moje social media"
+  }
+}
