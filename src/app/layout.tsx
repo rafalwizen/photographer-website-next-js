@@ -19,7 +19,7 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  const messages = (await import(`@/messages/${locale}.json`)).default;
+  const messages = (await import(`@/i18n/messages/${locale}.json`)).default;
 
   return (
       <html lang={locale}>

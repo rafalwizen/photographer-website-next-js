@@ -1,19 +1,25 @@
+'use client';
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useLocale } from 'next-intl'
 import { useState } from 'react'
-import { useTranslation } from 'next-i18next'
+import { useTranslations } from 'next-intl';
 import styles from './Navbar.module.css'
 
 export default function Navbar() {
+    const router = useRouter()
+    const locale = useLocale()
     const [click, setClick] = useState(false)
-    const { t, i18n } = useTranslation()
+    const t = useTranslations('navbar');
 
     const handleClick = () => setClick(!click)
     const closeMobileMenu = () => setClick(false)
 
     const changeLanguage = () => {
-        const newLanguage = i18n.language === 'pl' ? 'en' : 'pl'
-        i18n.changeLanguage(newLanguage)
+        const newLocale = locale === 'pl' ? 'en' : 'pl'
+        router.push(`/${newLocale}`)
     }
 
     return (
@@ -54,7 +60,7 @@ export default function Navbar() {
 
                 <div className={styles.languageSwitcher}>
                     <button onClick={changeLanguage}>
-                        {i18n.language === 'pl' ? 'EN' : 'PL'}
+                        {locale === 'pl' ? 'EN' : 'PL'}
                     </button>
                 </div>
             </div>

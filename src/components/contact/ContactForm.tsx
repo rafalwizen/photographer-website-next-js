@@ -4,11 +4,16 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import emailjs from '@emailjs/browser';
 import styles from './ContactForm.module.css';
-import { Notification } from '../Notification';
+import Notification from '../notification/Notification';
+
+interface NotificationState {
+    message: string;
+    type: 'success' | 'error';
+}
 
 export default function ContactForm() {
     const t = useTranslations('contact');
-    const [notification, setNotification] = useState(null);
+    const [notification, setNotification] = useState<NotificationState | null>(null);
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -17,8 +22,10 @@ export default function ContactForm() {
         message: '',
     });
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+
+        const form = e.target as HTMLFormElement;
 
         try {
             const response = await fetch('/config/config.json');
@@ -27,18 +34,20 @@ export default function ContactForm() {
             await emailjs.sendForm(
                 config.emailjs.serviceID,
                 config.emailjs.templateID,
-                e.target,
+                form,
                 config.emailjs.userID
             );
 
             setNotification({ message: t('send_alert_success'), type: 'success' });
-            e.target.reset();
+            form.reset();
         } catch (error) {
+            console.log(error);
             setNotification({ message: t('send_alert_error'), type: 'error' });
         }
 
         setTimeout(() => setNotification(null), 3000);
     };
+
 
     return (
         <>
