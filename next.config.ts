@@ -1,4 +1,4 @@
-const withNextIntl = require('next-intl/plugin')();
+import withNextIntl from 'next-intl/plugin';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -6,8 +6,10 @@ const nextConfig = {
         domains: ['localhost'],
     },
     experimental: {
-        serverActions: true,
+        serverActions: {
+            allowedOrigins: ['*'],
+        },
     },
 };
 
-module.exports = withNextIntl(nextConfig);
+export default withNextIntl()(nextConfig);
