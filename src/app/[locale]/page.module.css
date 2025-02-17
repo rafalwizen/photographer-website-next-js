@@ -1,0 +1,38 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  background-image: url('/images/we_are_changing.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.content {
+  text-align: center;
+  color: #373737;
+  max-width: 800px;
+  padding: 2rem;
+}
+
+.socialIcons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background-image: url('/images/we_are_changing_mobile.jpg');
+    min-height: 60vh;
+  }
+}
