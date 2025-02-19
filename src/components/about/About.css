@@ -6,7 +6,7 @@ html, body {
 }
 
 .about {
-    background-image: url('/public/images/we_are_changing.jpg');
+    background-image: url('/images/we_are_changing.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -64,7 +64,7 @@ html, body {
 
 @media (max-width: 480px) {
     .about {
-        background-image: url('/public/images/we_are_changing_mobile.jpg');
+        background-image: url('/images/we_are_changing_mobile.jpg');
         background-size: cover;
         font-size: 30px;
         justify-content: flex-start;
@@ -73,6 +73,7 @@ html, body {
     }
 
     .about .content {
+        padding-top: 40px;
         font-size: 24px;
         width: 90%;
     }
