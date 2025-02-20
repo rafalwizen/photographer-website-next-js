@@ -1,5 +1,5 @@
 .navbar-logo-text {
-    font-family: 'TruesdellStdBoldItalic', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+    font-family: var(--font-truesdell), 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
     font-weight: bold;
     font-style: italic;
     font-size: 2rem;
@@ -61,7 +61,7 @@
 }
 
 .nav-links {
-    font-family: 'MontserratVariableFontWght', 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
+    font-family: var(--font-monsterrat), 'Lucida Sans Unicode', 'Lucida Grande', sans-serif;
     color: #373737;
     display: flex;
     align-items: center;
