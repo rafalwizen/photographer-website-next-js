@@ -23,42 +23,42 @@ export default function Navbar() {
     }
 
     return (
-        <nav className={styles.navbar}>
-            <div className={styles.navbarContainer}>
-                <Link href="/public" onClick={closeMobileMenu} className={styles.navbarLogo}>
+        <nav className="navbar">
+            <div className="navbar-container">
+                <Link href="/public" onClick={closeMobileMenu} className="navbarLogo">
                     <Image
                         src="/images/logo.jpg"
                         alt="Profile"
                         width={75}
                         height={75}
-                        className={styles.navbarLogoImage}
+                        className="navbarLogoImage"
                     />
-                    <span className={styles.navbarLogoText}>Paweł Rozbicki</span>
+                    <span className="navbarLogoText">Paweł Rozbicki</span>
                 </Link>
 
-                <div className={styles.menuIcon} onClick={handleClick}>
+                <div className="menuIcon" onClick={handleClick}>
                     <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
                 </div>
 
                 <ul className={`${styles.navMenu} ${click ? styles.active : ''}`}>
-                    <li className={styles.navItem}>
-                        <Link href="/public" className={styles.navLinks} onClick={closeMobileMenu}>
-                            {t('navbar.about_me')}
+                    <li className="navItem">
+                        <Link href="/public" className="navLinks" onClick={closeMobileMenu}>
+                            {t('about_me')}
                         </Link>
                     </li>
-                    <li className={styles.navItem}>
-                        <Link href="/gallery" className={styles.navLinks} onClick={closeMobileMenu}>
-                            {t('navbar.gallery')}
+                    <li className="navItem">
+                        <Link href="/gallery" className="navLinks" onClick={closeMobileMenu}>
+                            {t('gallery')}
                         </Link>
                     </li>
-                    <li className={styles.navItem}>
-                        <Link href="/contact" className={styles.navLinks} onClick={closeMobileMenu}>
-                            {t('navbar.contact')}
+                    <li className="navItem">
+                        <Link href="/contact" className="navLinks" onClick={closeMobileMenu}>
+                            {t('contact')}
                         </Link>
                     </li>
                 </ul>
 
-                <div className={styles.languageSwitcher}>
+                <div className="languageSwitcher">
                     <button onClick={changeLanguage}>
                         {locale === 'pl' ? 'EN' : 'PL'}
                     </button>

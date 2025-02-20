@@ -4,6 +4,7 @@ import {notFound} from 'next/navigation';
 import {routing} from '@/i18n/routing';
 import localFont from "next/font/local";
 import '../../styles/globals.css'
+import Navbar from "@/components/navbar/Navbar";
 
 const truesdell = localFont({
     src: "../../../public/fonts/truesdell_std_bold_italic.otf",
@@ -11,16 +12,18 @@ const truesdell = localFont({
     variable: "--font-truesdell",
 });
 
-const monsterrat = localFont({
+const montserrat = localFont({
     src: "../../../public/fonts/montserrat_variable_font_wght.ttf",
     style: "italic",
     variable: "--font-monsterrat",
 });
 
-export default async function LocaleLayout({ children, params: {locale} } : {
+export default async function LocaleLayout({ children, params }: {
     children: React.ReactNode;
-    params: {locale: string};
+    params: { locale: string };
 }) {
+    const { locale } = await Promise.resolve(params);
+
     if (!routing.locales.includes(locale as never)) {
         notFound();
     }
@@ -28,9 +31,10 @@ export default async function LocaleLayout({ children, params: {locale} } : {
     const messages = await getMessages();
 
     return (
-        <html lang={locale} className={`${truesdell.variable} ${monsterrat.variable}`}>
+        <html lang={locale} className={`${truesdell.variable} ${montserrat.variable}`} suppressHydrationWarning>
         <body>
         <NextIntlClientProvider messages={messages}>
+            <Navbar />
             {children}
         </NextIntlClientProvider>
         </body>
