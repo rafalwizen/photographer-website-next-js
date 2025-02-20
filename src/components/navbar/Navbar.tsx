@@ -25,7 +25,7 @@ export default function Navbar() {
     return (
         <nav className={styles.navbar}>
             <div className={styles['navbar-container']}>
-                <Link href="/public" onClick={closeMobileMenu} className={styles['navbar-logo']}>
+                <Link href={`/${locale}/`} onClick={closeMobileMenu} className={styles['navbar-logo']}>
                     <Image
                         src="/images/logo.jpg"
                         alt="Profile"
@@ -42,17 +42,17 @@ export default function Navbar() {
 
                 <ul className={`${styles['nav-menu']} ${click ? styles.active : ''}`}>
                     <li className={styles['nav-item']}>
-                        <Link href="/public" className={styles['nav-links']} onClick={closeMobileMenu}>
+                        <Link href={`/${locale}/`} className={styles['nav-links']} onClick={closeMobileMenu}>
                             {t('about_me')}
                         </Link>
                     </li>
                     <li className={styles['nav-item']}>
-                        <Link href="/gallery" className={styles['nav-links']} onClick={closeMobileMenu}>
+                        <Link href={`/${locale}/gallery`} className={styles['nav-links']} onClick={closeMobileMenu}>
                             {t('gallery')}
                         </Link>
                     </li>
                     <li className={styles['nav-item']}>
-                        <Link href="/contact" className={styles['nav-links']} onClick={closeMobileMenu}>
+                        <Link href={`/${locale}/`} className={styles['nav-links']} onClick={closeMobileMenu}>
                             {t('contact')}
                         </Link>
                     </li>
