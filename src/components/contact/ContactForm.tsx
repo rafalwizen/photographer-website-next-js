@@ -1,10 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
-import emailjs from '@emailjs/browser';
-import styles from './ContactForm.module.css';
 import Notification from '../notification/Notification';
+import styles from './ContactForm.module.css'
 
 interface NotificationState {
     message: string;
@@ -22,26 +22,37 @@ export default function ContactForm() {
         message: '',
     });
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData((prev) => ({ ...prev, [name]: value }));
+    };
+
+
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const form = e.target as HTMLFormElement;
+        const formData = new FormData(form);
+
+        const formDataObject = Object.fromEntries(formData.entries());
 
         try {
-            const response = await fetch('/config/config.json');
-            const config = await response.json();
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formDataObject),
+            });
 
-            await emailjs.sendForm(
-                config.emailjs.serviceID,
-                config.emailjs.templateID,
-                form,
-                config.emailjs.userID
-            );
-
-            setNotification({ message: t('send_alert_success'), type: 'success' });
-            form.reset();
+            if (response.ok) {
+                setNotification({ message: t('send_alert_success'), type: 'success' });
+                form.reset();
+            } else {
+                setNotification({ message: t('send_alert_error'), type: 'error' });
+            }
         } catch (error) {
-            console.log(error);
+            console.error(error);
             setNotification({ message: t('send_alert_error'), type: 'error' });
         }
 
@@ -49,30 +60,41 @@ export default function ContactForm() {
     };
 
 
+
+
     return (
         <>
-            <form onSubmit={handleSubmit} className={styles.contactForm}>
-                <div className={styles.formGroup}>
-                    <label htmlFor="name">{t('name')}:</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    />
+            <div className={styles["contact-container"]}>
+                <form onSubmit={handleSubmit} className={styles["contact-form"]}>
+                    <div className={styles["form-group"]}>
+                        <label htmlFor="name">{t('name')}:</label>
+                        <input type="text" id="name" name="name" value={formData.name} required onChange={handleChange} />
+                    </div>
+                    <div className={styles["form-group"]}>
+                        <label htmlFor="email">{t('email')}:</label>
+                        <input type="email" id="email" name="email" value={formData.email} required onChange={handleChange} />
+                    </div>
+                    <div className={styles["form-group"]}>
+                        <label htmlFor="phone">{t('phone')}:</label>
+                        <input type="tel" id="phone" name="phone" value={formData.phone} required onChange={handleChange} />
+                    </div>
+                    <div className={styles["form-group"]}>
+                        <label htmlFor="weddingDate">{t('wedding_date')}:</label>
+                        <input type="date" id="weddingDate" name="weddingDate" value={formData.weddingDate} required onChange={handleChange} />
+                    </div>
+                    <div className={styles["form-group"]}>
+                        <label htmlFor="message">{t('message')}:</label>
+                        <textarea id="message" name="message" value={formData.message} required onChange={handleChange}></textarea>
+                    </div>
+                    <button type="submit" className={styles["submit-button"]}>{t('send')}</button>
+                </form>
+                <div className={styles["contact-info"]}>
+                    <Image src="/images/img-test-5-small.jpg" alt="Example" width={300} height={200} />
+                    <p>{t('info')}</p>
+                    <p className={styles["mail"]}>pawel.rozbicki@gmail.com</p>
                 </div>
-                {/* Similar structure for other form fields */}
-                <button type="submit" className={styles.submitButton}>
-                    {t('send')}
-                </button>
-            </form>
-            {notification && (
-                <Notification
-                    message={notification.message}
-                    type={notification.type}
-                />
-            )}
+            </div>
+            {notification && <Notification message={notification.message} type={notification.type} />}
         </>
     );
 }
