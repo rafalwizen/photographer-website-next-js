@@ -52,7 +52,7 @@ export default function Navbar() {
                         </Link>
                     </li>
                     <li className={styles['nav-item']}>
-                        <Link href={`/${locale}/`} className={styles['nav-links']} onClick={closeMobileMenu}>
+                        <Link href={`/${locale}/contact`} className={styles['nav-links']} onClick={closeMobileMenu}>
                             {t('contact')}
                         </Link>
                     </li>
