@@ -5,7 +5,7 @@
 }
 
 .hero {
-  background-image: url('/images/we_are_changing.jpg');
+  background-image: url('/images/we_are_changing.webp');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -32,7 +32,7 @@
 
 @media (max-width: 768px) {
   .hero {
-    background-image: url('/images/we_are_changing_mobile.jpg');
+    background-image: url('/images/we_are_changing_mobile.webp');
     min-height: 60vh;
   }
 }
