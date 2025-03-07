@@ -1,6 +1,7 @@
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
 import {notFound} from 'next/navigation';
+import { Metadata } from "next";
 import {routing} from '@/i18n/routing';
 import localFont from "next/font/local";
 import '../../styles/globals.css'
@@ -17,6 +18,20 @@ const montserrat = localFont({
     style: "italic",
     variable: "--font-monsterrat",
 });
+
+export const metadata: Metadata = {
+    title: "Paweł Rozbicki - Fotograf ślubny Tarnowskie Góry i cała Polska",
+    description: "Profesjonalna fotografia ślubna w Tarnowskich Górach oraz całej Polsce. Uchwycimy najpiękniejsze momenty Waszego życia.",
+    keywords: "fotograf ślubny, Tarnowskie Góry, sesja ślubna, fotografia ślubna, ślub, wesele, fotografia, Polska",
+    robots: "index, follow",
+    alternates: {
+        canonical: "https://rozbickipawel.pl/",
+        languages: {
+            "en": "https://rozbickipawel.pl/en",
+            "pl": "https://rozbickipawel.pl/pl",
+        },
+    },
+};
 
 export default async function LocaleLayout({ children, params }: {
     children: React.ReactNode;
